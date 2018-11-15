@@ -8,6 +8,7 @@ CXXFLAGS = -std=c++17 -lstdc++ -lm -Wall
 
 $(EXEC): $(OBJS)
 	$(CXX) $(OBJS) -o $(EXEC)
+	mv $(EXEC) ..
 
 $(OBJS): $(DEPS)
 
