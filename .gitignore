@@ -1,0 +1,6 @@
+data/
+parameter_files/
+snapshots/
+*.py
+*.o
+integrator_mpi
