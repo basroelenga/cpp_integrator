@@ -1,0 +1,79 @@
+# IO info
+
+IC_data                 voyager.dat
+
+# Time integration options (Gyr)
+
+total_time              1e-05
+dt                      1e-09
+
+# Snapshot options
+
+repack                  False
+output_dust_gas         True
+r_cut                   0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

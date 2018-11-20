@@ -1,6 +1,4 @@
-data/
-parameter_files/
+data/galaxy_*
 snapshots/
-*.py
 *.o
 integrator_mpi
