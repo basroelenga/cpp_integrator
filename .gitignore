@@ -1,6 +1,5 @@
-data/
-parameter_files/
+data/galaxy_*
+data/close_encounter_future.dat
 snapshots/
-*.py
 *.o
 integrator_mpi
