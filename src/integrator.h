@@ -32,4 +32,6 @@ void integrate(std::shared_ptr<std::vector<Sol_object>> object_array, std::share
 std::tuple<double*, double*> rk4(const double x, const double y, const double z, const double vx, const double vy, const double vz, const double dt);
 void add_gas(std::shared_ptr<std::vector<Sol_object>> object_array, std::shared_ptr<Parameters> param);
 
+void progress(int total, int current, std::string output_message);
+
 #endif

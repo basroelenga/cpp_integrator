@@ -42,12 +42,16 @@ void integrate(std::shared_ptr<std::vector<Sol_object>> object_array, std::share
       if(param->get_world_rank() == 0)
       {
 
+        /*
         std::cout << "\n";
         std::cout << "Writing snapshot " << s + 1 << ". \n";
         std::cout << "Total time: " << diff_total.count() << " seconds. \n";
         std::cout << "Snapshot time: " << diff_snap.count() << " seconds. \n";
         std::cout << "Write time: " << io_time.count() << " seconds. \n";
         std::cout << param->get_snap_time(s) << " " << t << " and " << t - param->get_dt() << "\n";
+        */
+
+        progress(param->get_snapshots_num(), s, "Output");
       }
       s += 1;
     }
@@ -134,4 +138,27 @@ void add_gas(std::shared_ptr<std::vector<Sol_object>> object_array, std::shared_
     double* x = (*object_array)[param->get_target_indx_list()[i]].get_positions();
     (*g_obj_ptr)[i].add_gas(t, x[0], x[1], x[2]);
   }
+}
+
+void progress(int total, int current, std::string output_message)
+{
+
+  // Hardcode bars for now
+  int total_bars = 50;
+  float p = (float)current / (float)total;
+
+  int progress_bars = p * total_bars;
+  std::string output_bars;
+
+  for(int i = 0; i < progress_bars; i++)
+  {
+    output_bars += "=";
+  }
+
+  for(int i = 0; i < total_bars - progress_bars - 1; i++)
+  {
+    output_bars += " ";
+  }
+
+  std::cout << "\r" << "Integrating : [" << output_bars << "] (snapshots : " << current + 1<< "/" << total << ")" << std::flush;
 }

@@ -6,11 +6,11 @@ import os
 #===================================================================================================================================================
 # Program parameters
 CORES = 1										# The amount of cores used in the integration
-REPACK = False									# Pack all snapshots in 1 file (this should be on for a large number of snapshots and targets)
+REPACK = True									# Pack all snapshots in 1 file (this should be on for a large number of snapshots and targets)
 DUST_GAS = False								# Calculate dust and gas properties for the targets
 
 # Simulation parameters (Gyr)
-t = 1E-5										# Total integration time
+t = 1E-3										# Total integration time
 dt = 1E-9										# The timestep
 
 input_data = "voyager.dat"						# The input data
