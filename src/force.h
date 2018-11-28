@@ -5,6 +5,9 @@
 #include <vector>
 #include <cmath>
 
+#include "parameters.h"
+#include "core.h"
+
 /* Constants used in functions, maybe put in a file to change without compiling */
 const double G = 4.49708E-06;
 
@@ -27,6 +30,10 @@ const double Rvir = 258;
 const double conc = Rvir / r_s;
 
 const double phi_0 = G * (M200 / Rvir) * conc * pow(std::log(1 + conc) - conc / (1 + conc), -1);
+
+// The centuari system parameters
+const double M_alpha = 2.0429;
+const double M_proxima = 0.1221;
 
 /* Some temporary variables */
 inline double acc_array_halo[3];

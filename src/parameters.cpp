@@ -213,3 +213,8 @@ std::shared_ptr<std::vector<Gas_object>> Parameters::get_gas_objects()
 {
   return gas_obj_list;
 }
+
+std::vector<int> Parameters::get_centuari_indx()
+{
+  return centauri_indx;
+}

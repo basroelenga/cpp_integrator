@@ -44,6 +44,9 @@ class Parameters
     /* Gas object list, for now this is part of the parameter object */
     std::shared_ptr<std::vector<Gas_object>> gas_obj_list;
 
+    // Centauri indx
+    std::vector<int> centauri_indx;
+
     /* Load functions */
     void load_parameter_file(std::string param_name);
     void load_target_file(std::string cutoff_name);
@@ -85,6 +88,8 @@ class Parameters
 
     void add_gas_object(Gas_object g_obj);
     std::shared_ptr<std::vector<Gas_object>> get_gas_objects();
+
+    std::vector<int> get_centuari_indx();
 };
 
 #endif

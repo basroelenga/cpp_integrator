@@ -74,3 +74,42 @@ double* force_sun(const double x, const double y, const double z)
 
   return acc_sun;
 }
+
+// Update the gravitational interaction between the centauri system.
+// Can improve this function by moving some stuff around.
+std::tuple<double*, double*> update_centuari_system(std::shared_ptr<std::vector<Sol_object>> centauri, std::shared_ptr<Parameters> param)
+{
+
+  std::vector<int> indx = param->get_centuari_indx();
+
+  Sol_object obj_1 = (*centauri)[indx[0]];
+  Sol_object obj_2 = (*centauri)[indx[1]];
+
+  double* x1 = obj_1.get_positions();
+  double* x2 = obj_2.get_positions();
+
+  double* v1 = obj_1.get_velocities();
+  double* v2 = obj_2.get_velocities();
+
+  // Distance between the objects
+  double r = sqrt(pow((x1[0] - x2[0]), 2) + pow((x1[1] - x2[1]), 2) + pow((x1[2] - x2[2]), 2));
+
+  // To Cartesian
+  double* acc_vec_1 = calc_acc(M_proxima, x1, r);
+  double* acc_vec_2 = calc_acc(M_alpha, x2, r);
+
+  return std::make_tuple(acc_vec_1, acc_vec_2);
+}
+
+double* calc_acc(const double M, const double* x, const double r)
+{
+
+  double acc_vec[3];
+  double acc = (G * M) / pow(r, 2);
+
+  acc_vec[0] = acc * (x[0] / r);
+  acc_vec[1] = acc * (x[1] / r);
+  acc_vec[2] = acc * (x[2] / r);
+
+  return acc_vec;
+}
